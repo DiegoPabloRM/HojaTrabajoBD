@@ -8,19 +8,22 @@ public class Main {
 
 	public static void main(String[] args) {
 				
+		
 		int opcion =0;
 		do {
 			
 			try {
-				
-				Scanner lector = new Scanner(System.in);
+
 	            System.out.println("----Menú de inicio----");
-	            System.out.println("1. Registrar estudiante nuevo");
+	            System.out.println("1. Registrar estudiante nuevo y salir");
 	            System.out.println("2. Modificar estudiante existente");
 	            System.out.println("3. Ver la base de datos");
 	            System.out.println("4. Eliminar un alumno existente");
 	            System.out.println("5. Salir");
+	            Scanner lector = new Scanner(System.in);
 	            opcion = lector.nextInt();
+	           
+	            
 	            
 	            switch (opcion) {
 				case 1: {
@@ -46,13 +49,12 @@ public class Main {
 				}
 				default:
 					System.out.println("Ingrese una opcion valida");
+					
 				}
-				lector.close();
+				
 				} catch (Exception e) {
-					System.out.println("Ingrese unicamente números");
+					System.out.println("Ingrese unicamente numeros");
 			}
-			
-            
 		} while (opcion!=5);
 		
 	}
