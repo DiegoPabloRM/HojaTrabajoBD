@@ -53,11 +53,12 @@ public class TestDao {
 		System.out.println("Colegiatura: ");
 		int colegiatura=sc.nextInt();
 		
-		sc.close();
+		
 		
         Connection conn = MariaDBConnecction.getConnection();
 
         if (conn != null) {
+        	
 
             try {
 
@@ -84,11 +85,13 @@ public class TestDao {
                 
                 System.out.println("Registro creado: " + filasInsertadas);
 
+                
                 statement.close();
-
                 conn.close();
-
+                
+                
                 return filasInsertadas > 0;
+                
 
             } catch (SQLException e) {
 
@@ -97,15 +100,14 @@ public class TestDao {
                 return false;
 
             }
-
+           
         } else {
 
             System.out.println("No se pudo establecer la conexión.");
 
             return false;
-
+           
         }
-        
     }
     
     // Método para eliminar un estudiante
@@ -115,7 +117,7 @@ public class TestDao {
     	System.out.println("Por favor ingrese el ID del estudiante que desea eliminar: ");
     	Scanner sc = new Scanner(System.in);
     	int idestudiante = sc.nextInt();
-    	sc.close();
+    	
     	
         Connection conn = MariaDBConnecction.getConnection();
 
@@ -161,6 +163,7 @@ public class TestDao {
 
         Connection conn = MariaDBConnecction.getConnection();
         if (conn != null) {
+        	
             try {
                 String consulta = "SELECT * FROM estudiantes";
                 PreparedStatement statement = conn.prepareStatement(consulta);
@@ -220,8 +223,6 @@ public class TestDao {
 		
 		System.out.println("Fecha de nacimiento (aaaa-mm-dd): ");
 		String fecha_nacimiento=sc.nextLine();
-		
-		sc.close();
     	
         Connection conn = MariaDBConnecction.getConnection();
 
@@ -245,7 +246,9 @@ public class TestDao {
 
                 statement.close();
                 conn.close();
+                System.out.println("El registro ha sido actualizado correctamente");
                 return filasActualizadas > 0;
+                
             } catch (SQLException e) {
                 System.out.println("Error al actualizar estudiante: " + e.getMessage());
                 return false;
