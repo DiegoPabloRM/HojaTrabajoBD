@@ -1,0 +1,59 @@
+package com.umg.test;
+
+import java.util.Scanner;
+
+import com.umg.dao.TestDao;
+
+public class Main {
+
+	public static void main(String[] args) {
+				
+		int opcion =0;
+		do {
+			
+			try {
+				
+				Scanner lector = new Scanner(System.in);
+	            System.out.println("----Menú de inicio----");
+	            System.out.println("1. Registrar estudiante nuevo");
+	            System.out.println("2. Modificar estudiante existente");
+	            System.out.println("3. Ver la base de datos");
+	            System.out.println("4. Eliminar un alumno existente");
+	            System.out.println("5. Salir");
+	            opcion = lector.nextInt();
+	            
+	            switch (opcion) {
+				case 1: {
+						TestDao.agregarEstudiante();
+						break;
+				}
+				
+				case 2:{
+					TestDao.actualizarEstudiante();
+					break;
+				}
+				case 3:{
+					TestDao.leerEstudiantes();
+					break;
+				}
+				case 4:{
+					TestDao.eliminarEstudiante();
+					break;
+				}
+				case 5:{
+					System.out.println("Usted ha salido de la base de datos");
+					break;
+				}
+				default:
+					System.out.println("Ingrese una opcion valida");
+				}
+				lector.close();
+				} catch (Exception e) {
+					System.out.println("Ingrese unicamente números");
+			}
+			
+            
+		} while (opcion!=5);
+		
+	}
+}
